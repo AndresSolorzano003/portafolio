@@ -1,15 +1,15 @@
 {
   "about": {
-    "title": "La curiosidad es mi herramienta favorita",
+    "title": "Construir soluciones digitales que conectan el desarrollo con la analítica",
     "paragraphs": [
-      "Soy Andrés, analista de datos en Medellín. Disfruto tomar información dispersa — hojas de cálculo, bases de datos, formularios — y convertirla en tableros claros que una persona pueda leer en diez segundos y usar para decidir.",
-      "Me formé combinando Excel avanzado, Power BI y Python, y hoy exploro cómo la inteligencia artificial puede acelerar ese proceso: desde limpiar datos hasta generar hallazgos automáticamente.",
-      "Fuera de las pantallas, me mueve la misma curiosidad: preguntar 'por qué' una vez más de lo normal, hasta encontrar el patrón que nadie había visto."
+      "Soy Andrés, tecnólogo en desarrollo de software y estudiante de ingeniería en el Pascual Bravo. Me especializo en crear páginas web, aplicaciones interactivas y herramientas de automatización que simplifican la operación diaria.",
+      "Mi enfoque une lo mejor de dos mundos: el desarrollo web y de software (HTML, CSS, JS, Python, Google Apps Script) y la analítica de datos (Power BI, SQL, DAX) para crear sistemas robustos y fáciles de usar.",
+      "Ya sea diseñando interfaces web o estructurando bases de datos, mi objetivo es transformar ideas complejas en código limpio y funcional."
     ],
     "highlights": [
       {
         "label": "Enfoque",
-        "value": "Datos → decisiones"
+        "value": "Web, Software & Datos"
       },
       {
         "label": "Ubicación",
@@ -20,8 +20,12 @@
         "value": "Proyectos freelance"
       },
       {
-        "label": "Idiomas",
-        "value": "Español, Inglés"
+        "label": "STACK PRINCIPAL",
+        "value": "Python, JS, SQL, Power BI"
+      },
+      {
+        "label": "Idioma",
+        "value": "Español, Ingles(Intermedio)"
       }
     ]
   },
