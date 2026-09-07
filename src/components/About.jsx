@@ -1,9 +1,9 @@
 import { useRef } from "react";
-import { about, profile } from "../data/portfolio";
+import { profile } from "../data/portfolio";
 import SectionKicker from "./SectionKicker";
 import { useAssembleIn } from "../hooks/useAssembleIn";
 
-export default function About() {
+export default function About({ about }) {
   const containerRef = useRef(null);
   useAssembleIn(containerRef, ".assemble-highlight", { stagger: 0.1 });
 
@@ -11,10 +11,9 @@ export default function About() {
     <section id="sobre-mi" className="relative px-6 py-28 md:px-10 md:py-36">
       <div className="mx-auto grid max-w-6xl gap-16 md:grid-cols-[1fr_1fr]">
         <div>
-          <SectionKicker>{about.kicker}</SectionKicker>
+          <SectionKicker>Sobre mí</SectionKicker>
           <h2 className="font-display mt-5 text-4xl leading-tight font-semibold tracking-tight md:text-5xl">
-            La curiosidad es mi <span className="italic text-accent-teal">herramienta</span>{" "}
-            favorita
+            {about.title}
           </h2>
 
           <div className="mt-8 space-y-5">

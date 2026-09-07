@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight, Database } from "lucide-react";
+import { slugify } from "../lib/slugify";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,10 +49,20 @@ export default function ProjectCard({ project, index }) {
         ref={visualRef}
         className={`relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br ${project.gradient} md:aspect-auto`}
       >
-        <span className="absolute -top-6 -left-6 h-24 w-24 rounded-full bg-white/20 blur-xl" />
-        <span className="absolute -bottom-8 -right-8 h-28 w-28 rounded-full bg-black/10 blur-2xl" />
-        <Database className="relative text-white/90" size={40} strokeWidth={1.5} />
-        <span className="absolute top-4 left-4 font-mono-label text-xs text-white/80">
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={project.title}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        ) : (
+          <>
+            <span className="absolute -top-6 -left-6 h-24 w-24 rounded-full bg-white/20 blur-xl" />
+            <span className="absolute -bottom-8 -right-8 h-28 w-28 rounded-full bg-black/10 blur-2xl" />
+            <Database className="relative text-white/90" size={40} strokeWidth={1.5} />
+          </>
+        )}
+        <span className="absolute top-4 left-4 font-mono-label text-xs text-white/80 drop-shadow">
           0{index + 1}
         </span>
       </div>
@@ -72,7 +83,9 @@ export default function ProjectCard({ project, index }) {
         </div>
 
         <a
-          href={project.link}
+          href={`#/proyecto/${slugify(project.title)}`}
+          target="_blank"
+          rel="noreferrer"
           className="mt-6 inline-flex w-fit items-center gap-1.5 text-sm font-medium text-ink"
         >
           Ver detalle

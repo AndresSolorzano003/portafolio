@@ -1,11 +1,10 @@
 import { useRef } from "react";
-import { softSkills } from "../data/portfolio";
 import SectionKicker from "./SectionKicker";
 import SkillCard from "./SkillCard";
 import SkillBar from "./SkillBar";
 import { useAssembleIn } from "../hooks/useAssembleIn";
 
-export default function Skills({ techSkills }) {
+export default function Skills({ techSkills, softSkills }) {
   const softRef = useRef(null);
   useAssembleIn(softRef, ".skill-card", { stagger: 0.08 });
 

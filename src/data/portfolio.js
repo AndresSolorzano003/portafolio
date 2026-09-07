@@ -88,66 +88,76 @@ export const techSkills = [
   { name: "IA Generativa", level: 85, category: "Automatización" },
   { name: "Looker Studio", level: 65, category: "BI" },
   { name: "Google Sheets / Apps Script", level: 72, category: "Automatización" },
+  { name: "Seguridad de Datos", level: 68, category: "Seguridad" },
 ];
 
-// Cada proyecto usa un degradado como portada mientras agregas
-// tus propias capturas de pantalla (reemplaza `image` por una
-// ruta a /src/assets/... cuando la tengas).
+// Cada proyecto usa un degradado como portada mientras no tenga imagen
+// propia (o `image` con una URL subida desde el panel de administración).
 export const projects = [
-  {
-    title: "Tablero de Ventas Regionales",
-    description:
-      "Dashboard en Power BI que consolida ventas de múltiples sucursales con alertas automáticas de metas.",
-    tags: ["Power BI", "DAX", "SQL"],
-    gradient: "from-indigo-400 via-violet-400 to-purple-500",
-    link: "#",
-  },
   {
     title: "Automatización de Reportes",
     description:
       "Macro en Excel + Apps Script que genera y envía reportes semanales sin intervención manual.",
+    longDescription: "",
     tags: ["Excel", "Apps Script", "Automatización"],
     gradient: "from-teal-400 via-emerald-400 to-cyan-500",
+    image: "",
+    videoUrl: "",
     link: "#",
   },
   {
     title: "Predicción de Demanda",
     description:
       "Modelo simple en Python para anticipar quiebres de inventario a partir de históricos de venta.",
+    longDescription: "",
     tags: ["Python", "Pandas", "IA"],
     gradient: "from-amber-400 via-orange-400 to-rose-400",
+    image: "",
+    videoUrl: "",
     link: "#",
   },
   {
     title: "Panel de Indicadores Comerciales",
     description:
       "KPIs comerciales en tiempo real conectados a la base de datos operativa vía consultas SQL.",
+    longDescription: "",
     tags: ["SQL", "Power BI", "KPIs"],
     gradient: "from-sky-400 via-blue-400 to-indigo-500",
+    image: "",
+    videoUrl: "",
     link: "#",
   },
   {
     title: "Encuestas + Análisis de Satisfacción",
     description:
       "Formulario de recolección de datos con limpieza automática y visualización de resultados.",
+    longDescription: "",
     tags: ["Google Forms", "Python", "Visualización"],
     gradient: "from-rose-400 via-pink-400 to-fuchsia-500",
+    image: "",
+    videoUrl: "",
     link: "#",
   },
   {
     title: "Asistente de Datos con IA",
     description:
       "Prototipo que usa IA generativa para responder preguntas de negocio directamente sobre un dataset.",
+    longDescription: "",
     tags: ["IA", "Python", "Prompting"],
     gradient: "from-violet-400 via-indigo-400 to-blue-500",
+    image: "",
+    videoUrl: "",
     link: "#",
   },
   {
     title: "Optimización de Inventario",
     description:
       "Análisis exploratorio que identificó productos de bajo rendimiento y ahorró costos de bodegaje.",
+    longDescription: "",
     tags: ["Excel", "SQL", "Análisis"],
     gradient: "from-emerald-400 via-teal-400 to-sky-500",
+    image: "",
+    videoUrl: "",
     link: "#",
   },
 ];

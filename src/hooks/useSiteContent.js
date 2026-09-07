@@ -1,27 +1,43 @@
 import { useEffect, useState } from "react";
-import { projects as defaultProjects, techSkills as defaultTechSkills } from "../data/portfolio";
+import {
+  about as defaultAbout,
+  softSkills as defaultSoftSkills,
+  projects as defaultProjects,
+  techSkills as defaultTechSkills,
+} from "../data/portfolio";
 import { CONTENT_RAW_URL } from "../config/site";
 
-// Reads the live projects/tech-skills from the repo's content.json (edited
-// through the hidden admin panel) and falls back to the bundled defaults
-// while it loads, or if the fetch fails (offline, repo not deployed yet).
+const DEFAULTS = {
+  about: defaultAbout,
+  softSkills: defaultSoftSkills,
+  projects: defaultProjects,
+  techSkills: defaultTechSkills,
+};
+
+// Reads the live, editable content (about, soft skills, projects,
+// tech skills) from the repo's content.json — edited through the hidden
+// admin panel — and falls back to the bundled defaults while it loads,
+// or if the fetch fails (offline, repo not deployed yet).
 export function useSiteContent() {
-  const [content, setContent] = useState({
-    projects: defaultProjects,
-    techSkills: defaultTechSkills,
-  });
+  const [content, setContent] = useState(DEFAULTS);
   const [source, setSource] = useState("default");
+  const [loading, setLoading] = useState(true);
 
   const load = () => {
+    setLoading(true);
     fetch(`${CONTENT_RAW_URL}?t=${Date.now()}`, { cache: "no-store" })
       .then((res) => (res.ok ? res.json() : Promise.reject(new Error("not ok"))))
       .then((data) => {
-        if (Array.isArray(data.projects) && Array.isArray(data.techSkills)) {
-          setContent({ projects: data.projects, techSkills: data.techSkills });
-          setSource("remote");
-        }
+        setContent({
+          about: data.about && data.about.paragraphs ? data.about : DEFAULTS.about,
+          softSkills: Array.isArray(data.softSkills) ? data.softSkills : DEFAULTS.softSkills,
+          projects: Array.isArray(data.projects) ? data.projects : DEFAULTS.projects,
+          techSkills: Array.isArray(data.techSkills) ? data.techSkills : DEFAULTS.techSkills,
+        });
+        setSource("remote");
       })
-      .catch(() => setSource("default"));
+      .catch(() => setSource("default"))
+      .finally(() => setLoading(false));
   };
 
   useEffect(() => {
@@ -32,9 +48,9 @@ export function useSiteContent() {
   // so the change reflects instantly instead of waiting on the raw.
   // githubusercontent.com CDN cache to catch up with the new commit.
   const applyLocal = (next) => {
-    setContent(next);
+    setContent((prev) => ({ ...prev, ...next }));
     setSource("local");
   };
 
-  return { ...content, source, refresh: load, applyLocal };
+  return { ...content, source, loading, refresh: load, applyLocal };
 }

@@ -1,4 +1,4 @@
-import { CONTENT_API_URL } from "../config/site";
+import { CONTENT_API_URL, GITHUB_OWNER, GITHUB_REPO, CONTENT_BRANCH } from "../config/site";
 
 function toBase64Utf8(str) {
   return btoa(unescape(encodeURIComponent(str)));
@@ -8,8 +8,8 @@ function fromBase64Utf8(b64) {
   return decodeURIComponent(escape(atob(b64.replace(/\n/g, ""))));
 }
 
-async function githubRequest(token, options = {}) {
-  const res = await fetch(CONTENT_API_URL, {
+async function githubRequest(url, token, options = {}) {
+  const res = await fetch(url, {
     ...options,
     headers: {
       Authorization: `Bearer ${token}`,
@@ -33,13 +33,13 @@ export async function verifyToken(token) {
 }
 
 export async function fetchRemoteContent(token) {
-  const data = await githubRequest(token);
+  const data = await githubRequest(CONTENT_API_URL, token);
   const content = JSON.parse(fromBase64Utf8(data.content));
   return { content, sha: data.sha };
 }
 
 export async function commitContent(token, content, sha, message) {
-  const data = await githubRequest(token, {
+  const data = await githubRequest(CONTENT_API_URL, token, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -49,4 +49,22 @@ export async function commitContent(token, content, sha, message) {
     }),
   });
   return data.content.sha;
+}
+
+// Uploads an already-base64-encoded image as a brand-new file under
+// public/uploads/ and returns the raw.githubusercontent.com URL to store
+// on the project. Each upload uses a unique filename, so no sha lookup is
+// needed (it's always a create, never an overwrite).
+export async function uploadImage(token, filename, base64Content) {
+  const path = `public/uploads/${filename}`;
+  const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`;
+  await githubRequest(url, token, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      message: `Subir imagen ${filename}`,
+      content: base64Content,
+    }),
+  });
+  return `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${CONTENT_BRANCH}/${path}`;
 }
