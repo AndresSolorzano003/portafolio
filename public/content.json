@@ -94,11 +94,6 @@
       "category": "Automatización"
     },
     {
-      "name": "Looker Studio",
-      "level": 65,
-      "category": "BI"
-    },
-    {
       "name": "Google Sheets / Apps Script",
       "level": 72,
       "category": "Automatización"
@@ -107,6 +102,21 @@
       "name": "Seguridad de Datos",
       "level": 68,
       "category": "Seguridad"
+    },
+    {
+      "name": "JavaScript / HTML / CSS",
+      "level": 62,
+      "category": "DESARROLLO WEB o FRONT-END"
+    },
+    {
+      "name": "C#",
+      "level": 44,
+      "category": "PROGRAMACIÓN"
+    },
+    {
+      "name": "Git / Control de Versiones",
+      "level": 75,
+      "category": "HERRAMIENTAS o DEV"
     }
   ]
 }
