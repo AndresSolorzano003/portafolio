@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap");
+@import "tailwindcss";
+
+/* Dark mode is toggled via a `.dark` class on <html> (see ThemeToggle),
+   not the OS preference, so `dark:` utilities follow that class. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-serif: "Playfair Display", "Georgia", serif;
+  --font-sans: "Inter", "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+
+  --color-ink: #14161c;
+  --color-ink-soft: #4b4e58;
+  --color-paper: #f4f3f1;
+  --color-paper-soft: #eae8e4;
+  --color-card: #fbfaf8;
+  --color-line: #dedad3;
+
+  --color-accent-indigo: #5b5bd6;
+  --color-accent-teal: #17a398;
+  --color-accent-amber: #e8933a;
+  --color-accent-rose: #d1587a;
+}
+
+:root {
+  color-scheme: light;
+  --cursor-x: 50vw;
+  --cursor-y: 50vh;
+  --scroll-progress: 0;
+}
+
+:root.dark {
+  color-scheme: dark;
+  --color-ink: #f2f1ee;
+  --color-ink-soft: #9a9ea9;
+  --color-paper: #0e0f13;
+  --color-paper-soft: #171922;
+  --color-card: #1a1c26;
+  --color-line: #2b2e39;
+
+  --color-accent-indigo: #8b8bf0;
+  --color-accent-teal: #2dd9c8;
+  --color-accent-amber: #f5a94e;
+  --color-accent-rose: #ec7fa0;
+}
+
+:root.dark .grain {
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Smooth, site-wide fade when the dark-mode toggle flips the color tokens. */
+*, *::before, *::after {
+  transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+/* subtle grain overlay for a premium, modern texture */
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-paper);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-line);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ink-soft);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .has-custom-cursor {
+    cursor: none;
+  }
+  .has-custom-cursor input,
+  .has-custom-cursor textarea,
+  .has-custom-cursor select {
+    cursor: auto;
+  }
+}
+
+.font-display {
+  font-family: var(--font-serif);
+}
+
+.font-mono-label {
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+}
+
+@keyframes particle-float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-18px) translateX(6px);
+  }
+}
+
+.particle-float {
+  animation-name: particle-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
