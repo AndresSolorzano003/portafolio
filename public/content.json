@@ -61,7 +61,26 @@
       "desc": "iempre estoy probando una nueva tecnología, framework o herramienta de automatización para acelerar los procesos."
     }
   ],
-  "projects": [],
+  "projects": [
+    {
+      "title": "Panel COVID-19 México 2020",
+      "description": "Dashboard interactivo que analiza 879,608 registros de COVID-19 en México: tendencias, letalidad por estado y comorbilidades, 100% responsive.",
+      "longDescription": "Panel de análisis y visualización construido desde cero en HTML, CSS y JavaScript puro (sin frameworks), a partir de la base de datos abiertos de COVID-19 de la Secretaría de Salud de México (879,608 registros, feb–jul 2020).\n\nIncluye KPIs de casos y letalidad, una línea de tiempo mensual con crosshair sincronizado entre series, un ranking interactivo de las 32 entidades con tabla ordenable y buscador, análisis demográfico por sexo y edad, el impacto de 10 comorbilidades en la mortalidad, y un embudo de severidad (confirmados → hospitalizados → UCI → intubados → defunciones).\n\nEl procesamiento de los datos crudos se hizo con un script propio en Python, y la interfaz incluye modo claro/oscuro, tooltips accesibles y una paleta de color validada contra daltonismo.",
+      "tags": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "SVG",
+        "Python",
+        "Git",
+        "GitHub Pages"
+      ],
+      "gradient": "from-indigo-400 via-violet-400 to-purple-500",
+      "image": "https://raw.githubusercontent.com/AndresSolorzano003/portafolio/main/public/uploads/1788809026675-captura-de-pantalla-2026-09-07-142339.jpg",
+      "videoUrl": "https://drive.google.com/file/d/1-IaW6_kzJkrMqaLa2hW9uDxeabYT7TqN/view?usp=drive_link",
+      "link": "#"
+    }
+  ],
   "techSkills": [
     {
       "name": "Power BI",
