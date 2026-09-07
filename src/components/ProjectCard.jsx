@@ -2,11 +2,10 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight, Database } from "lucide-react";
-import { slugify } from "../lib/slugify";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ProjectCard({ project, index }) {
+export default function ProjectCard({ project, index, onOpenDetail }) {
   const cardRef = useRef(null);
   const visualRef = useRef(null);
   const metaRef = useRef(null);
@@ -82,10 +81,9 @@ export default function ProjectCard({ project, index }) {
           ))}
         </div>
 
-        <a
-          href={`#/proyecto/${slugify(project.title)}`}
-          target="_blank"
-          rel="noreferrer"
+        <button
+          onClick={() => onOpenDetail(index)}
+          data-cursor="hover"
           className="mt-6 inline-flex w-fit items-center gap-1.5 text-sm font-medium text-ink"
         >
           Ver detalle
@@ -93,7 +91,7 @@ export default function ProjectCard({ project, index }) {
             size={15}
             className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
           />
-        </a>
+        </button>
       </div>
     </div>
   );
