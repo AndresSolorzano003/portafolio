@@ -78,7 +78,7 @@ export default function ProjectsEditor({ value, onChange, token }) {
   const save = () => {
     if (!draft.title.trim()) return;
     if (draft.videoUrl && !validateVideoUrl(draft.videoUrl)) {
-      setVideoError("Usa un link de YouTube, Vimeo, o un archivo .mp4/.webm directo.");
+      setVideoError("Usa un link de YouTube, Vimeo, Google Drive, o un archivo .mp4/.webm directo.");
       return;
     }
     const clean = {
@@ -250,11 +250,16 @@ export default function ProjectsEditor({ value, onChange, token }) {
 
           <div>
             <label className="mb-1 block text-xs text-ink-soft">
-              Video de funcionamiento — link de YouTube, Vimeo, o un .mp4 directo (opcional)
+              Video de funcionamiento — link de YouTube, Vimeo, Google Drive, o un .mp4 directo
+              (opcional)
             </label>
+            <p className="mb-1.5 text-[11px] text-ink-soft">
+              Para Google Drive: sube el video, clic derecho → Compartir → "Cualquier persona con
+              el enlace" y pega ese link aquí.
+            </p>
             <input
               className={inputClass}
-              placeholder="https://youtube.com/watch?v=..."
+              placeholder="https://drive.google.com/file/d/... o https://youtube.com/watch?v=..."
               value={draft.videoUrl}
               onChange={(e) => {
                 setDraft((d) => ({ ...d, videoUrl: e.target.value }));
