@@ -71,7 +71,7 @@ export default function ProjectCard({ project, index, onOpenDetail }) {
         <p className="mt-3 text-sm leading-relaxed text-ink-soft">{project.description}</p>
 
         <div ref={tagsRef} className="mt-5 flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
+          {(project.tags ?? []).map((tag) => (
             <span
               key={tag}
               className="font-mono-label rounded-full border border-line px-3 py-1 text-[10px] uppercase text-ink-soft"

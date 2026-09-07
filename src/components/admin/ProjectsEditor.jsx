@@ -15,8 +15,8 @@ function gradientIdFromClasses(classes) {
 
 function toDraft(project) {
   return {
-    title: project.title,
-    description: project.description,
+    title: project.title || "",
+    description: project.description || "",
     longDescription: project.longDescription || "",
     tags: (project.tags || []).join(", "),
     gradient: gradientIdFromClasses(project.gradient),
