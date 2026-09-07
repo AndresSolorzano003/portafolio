@@ -33,32 +33,32 @@
     {
       "icon": "Brain",
       "title": "Pensamiento analítico",
-      "desc": "Descompongo problemas complejos en preguntas simples que los datos pueden responder."
+      "desc": "Descompongo problemas complejos en requerimientos simples que el código, las consultas o los datos pueden resolver."
     },
     {
       "icon": "Users",
       "title": "Trabajo en equipo",
-      "desc": "Traduzco entre áreas técnicas y de negocio para que todos entiendan el mismo tablero."
+      "desc": "Traduzco necesidades de negocio y operativas en soluciones técnicas claras para que todo el equipo avance alineado."
     },
     {
       "icon": "MessageCircle",
       "title": "Comunicación clara",
-      "desc": "Un buen dato mal explicado no sirve: cuento la historia detrás de cada gráfico."
+      "desc": "Un desarrollo complejo o un buen dato mal explicado no sirve: traduzco la lógica técnica en interfaces y reportes fáciles de usar."
     },
     {
       "icon": "Puzzle",
       "title": "Resolución de problemas",
-      "desc": "Disfruto encontrar el camino más simple entre datos sucios y un reporte confiable."
+      "desc": "Disfruto encontrar el camino más eficiente entre un proceso manual, datos dispersos y un producto digital funcional."
     },
     {
       "icon": "Eye",
       "title": "Atención al detalle",
-      "desc": "Reviso cada cifra dos veces: la confianza en un tablero se rompe con un solo error."
+      "desc": "Reviso cada línea de código, estructura de datos y interfaz dos veces; la calidad de un sistema o tablero se construye con precisión."
     },
     {
       "icon": "Sparkles",
-      "title": "Curiosidad constante",
-      "desc": "Siempre estoy probando una herramienta, un modelo o una visualización nueva."
+      "title": "Aprendizaje continuo",
+      "desc": "iempre estoy probando una nueva tecnología, framework o herramienta de automatización para acelerar los procesos."
     }
   ],
   "projects": [],
